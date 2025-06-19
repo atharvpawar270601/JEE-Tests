@@ -1,1 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>JEE Test Platform Dashboard</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background: #f2f2f2;
+    }
+    header {
+      background-color: #0b3d91;
+      color: #fff;
+      padding: 1rem;
+      text-align: center;
+    }
+    .container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1rem;
+      padding: 1rem;
+    }
+    .card {
+      background-color: #fff;
+      padding: 1.5rem;
+      border-radius: 8px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      text-align: center;
+      transition: transform 0.2s;
+    }
+    .card:hover {
+      transform: scale(1.03);
+    }
+    .card a {
+      text-decoration: none;
+      color: #0b3d91;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
 
+<header>
+  <h1>JEE Test Platform</h1>
+  <p>Topic-wise | Section-wise | Half-portion | Full-portion Tests</p>
+</header>
+
+<section class="container">
+  <div class="card">
+    <h2>Mathematics Tests</h2>
+    <a href="tests/mathematics.html">Start Tests</a>
+  </div>
+  <div class="card">
+    <h2>Physics Tests</h2>
+    <a href="tests/physics.html">Start Tests</a>
+  </div>
+  <div class="card">
+    <h2>Chemistry Tests</h2>
+    <a href="tests/chemistry.html">Start Tests</a>
+  </div>
+  <div class="card">
+    <h2>Biology Tests</h2>
+    <a href="tests/biology.html">Start Tests</a>
+  </div>
+  <div class="card">
+    <h2>Section-wise Tests</h2>
+    <a href="tests/section-wise.html">Start Tests</a>
+  </div>
+  <div class="card">
+    <h2>Half-portion Tests</h2>
+    <a href="tests/half-portion.html">Start Tests</a>
+  </div>
+  <div class="card">
+    <h2>Full-portion Tests</h2>
+    <a href="tests/full-portion.html">Start Tests</a>
+  </div>
+  <div class="card">
+    <h2>Advanced (GATE / UPSC)</h2>
+    <a href="tests/advanced.html">Start Tests</a>
+  </div>
+</section>
+
+</body>
+</html>
