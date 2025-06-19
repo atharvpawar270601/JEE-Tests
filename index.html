@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Combined Science MCQ Test</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 20px;
+      padding: 0;
+      background-color: #f9f9f9;
+      color: #333;
+    }
+    h1, h2 {
+      text-align: center;
+    }
+    .question {
+      background: #fff;
+      border-radius: 8px;
+      padding: 15px;
+      margin-bottom: 15px;
+      box-shadow: 0 0 5px rgba(0,0,0,0.1);
+    }
+    .options label {
+      display: block;
+      margin: 5px 0;
+      cursor: pointer;
+    }
+    button {
+      display: block;
+      margin: 20px auto;
+      padding: 10px 20px;
+      font-size: 16px;
+      border-radius: 5px;
+      border: none;
+      background-color: #4CAF50;
+      color: white;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #45a049;
+    }
+    #result {
+      text-align: center;
+      font-size: 20px;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+
+<h1>Combined Science Online MCQ Test</h1>
+<h2>Total Marks: 100</h2>
+
+<form id="quizForm">
+
+  <div class="question">
+    <p>1) The value of sin²30° + cos²60° is:</p>
+    <div class="options">
+      <label><input type="radio" name="q1" value="B"> B) 1</label>
+      <label><input type="radio" name="q1" value="A"> A) 0.5</label>
+      <label><input type="radio" name="q1" value="C"> C) 0.75</label>
+      <label><input type="radio" name="q1" value="D"> D) 0.25</label>
+    </div>
+  </div>
+
+  <div class="question">
+    <p>2) Which gas is evolved when zinc reacts with dilute HCl?</p>
+    <div class="options">
+      <label><input type="radio" name="q2" value="B"> B) Hydrogen</label>
+      <label><input type="radio" name="q2" value="A"> A) Oxygen</label>
+      <label><input type="radio" name="q2" value="C"> C) Nitrogen</label>
+      <label><input type="radio" name="q2" value="D"> D) Chlorine</label>
+    </div>
+  </div>
+
+  <div class="question">
+    <p>3) Which pigment is responsible for photosynthesis?</p>
+    <div class="options">
+      <label><input type="radio" name="q3" value="B"> B) Chlorophyll</label>
+      <label><input type="radio" name="q3" value="A"> A) Hemoglobin</label>
+      <label><input type="radio" name="q3" value="C"> C) Melanin</label>
+      <label><input type="radio" name="q3" value="D"> D) Keratin</label>
+    </div>
+  </div>
+
+  <div class="question">
+    <p>4) SI unit of force is:</p>
+    <div class="options">
+      <label><input type="radio" name="q4" value="B"> B) Newton</label>
+      <label><input type="radio" name="q4" value="A"> A) Joule</label>
+      <label><input type="radio" name="q4" value="C"> C) Watt</label>
+      <label><input type="radio" name="q4" value="D"> D) Pascal</label>
+    </div>
+  </div>
+
+  <div class="question">
+    <p>5) pH of neutral solution is:</p>
+    <div class="options">
+      <label><input type="radio" name="q5" value="B"> B) 7</label>
+      <label><input type="radio" name="q5" value="A"> A) 14</label>
+      <label><input type="radio" name="q5" value="C"> C) 1</label>
+      <label><input type="radio" name="q5" value="D"> D) 0</label>
+    </div>
+  </div>
+
+  <button type="button" onclick="calculateScore()">Submit Answers</button>
+</form>
+
+<div id="result"></div>
+
+<script>
+  function calculateScore() {
+    const answers = {
+      q1: "B",
+      q2: "B",
+      q3: "B",
+      q4: "B",
+      q5: "B"
+    };
+    let score = 0;
+    let totalQuestions = Object.keys(answers).length;
+
+    for (let key in answers) {
+      let userAnswer = document.querySelector(`input[name="${key}"]:checked`);
+      if (userAnswer && userAnswer.value === answers[key]) {
+        score += 4; // 4 marks per correct answer
+      }
+    }
+
+    document.getElementById("result").innerText = `Your Score: ${score} / ${totalQuestions * 4}`;
+  }
+</script>
+
+</body>
+</html>
