@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Chemistry Test - JEE</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f9f9f9;
+      padding: 20px;
+      color: #333;
+    }
+    h1 {
+      text-align: center;
+      color: #0b3d91;
+    }
+    .question {
+      background: #fff;
+      padding: 15px;
+      border-radius: 5px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      margin-bottom: 15px;
+    }
+    .options label {
+      display: block;
+      margin: 5px 0;
+    }
+    button {
+      background-color: #0b3d91;
+      color: #fff;
+      border: none;
+      padding: 10px 20px;
+      font-size: 16px;
+      cursor: pointer;
+      border-radius: 5px;
+      display: block;
+      margin: 20px auto;
+    }
+    #result {
+      text-align: center;
+      font-size: 20px;
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+
+<h1>Chemistry Test (JEE Level)</h1>
+
+<form id="quizForm">
+
+  <div class="question">
+    <p>1) Which gas is evolved when zinc reacts with dilute hydrochloric acid?</p>
+    <div class="options">
+      <label><input type="radio" name="q1" value="A"> A) Oxygen</label>
+      <label><input type="radio" name="q1" value="B"> B) Hydrogen</label>
+      <label><input type="radio" name="q1" value="C"> C) Nitrogen</label>
+      <label><input type="radio" name="q1" value="D"> D) Chlorine</label>
+    </div>
+  </div>
+
+  <div class="question">
+    <p>2) Which of the following is a strong acid?</p>
+    <div class="options">
+      <label><input type="radio" name="q2" value="A"> A) Acetic acid</label>
+      <label><input type="radio" name="q2" value="B"> B) Hydrochloric acid</label>
+      <label><input type="radio" name="q2" value="C"> C) Citric acid</label>
+      <label><input type="radio" name="q2" value="D"> D) Formic acid</label>
+    </div>
+  </div>
+
+  <div class="question">
+    <p>3) Which among the following is an example of a double displacement reaction?</p>
+    <div class="options">
+      <label><input type="radio" name="q3" value="A"> A) AgNO₃ + NaCl → AgCl + NaNO₃</label>
+      <label><input type="radio" name="q3" value="B"> B) Zn + H₂SO₄ → ZnSO₄ + H₂</label>
+      <label><input type="radio" name="q3" value="C"> C) 2H₂ + O₂ → 2H₂O</label>
+      <label><input type="radio" name="q3" value="D"> D) CH₄ + 2O₂ → CO₂ + 2H₂O</label>
+    </div>
+  </div>
+
+  <button type="button" onclick="calculateScore()">Submit Test</button>
+</form>
+
+<div id="result"></div>
+
+<script>
+  function calculateScore() {
+    const answers = {
+      q1: "B",
+      q2: "B",
+      q3: "A"
+    };
+
+    let score = 0;
+    let total = Object.keys(answers).length * 4; // 4 marks per question
+
+    for (let key in answers) {
+      const selected = document.querySelector(`input[name="${key}"]:checked`);
+      if (selected && selected.value === answers[key]) {
+        score += 4;
+      }
+    }
+
+    document.getElementById("result").innerText = `Your Score: ${score} / ${total}`;
+  }
+</script>
+
+</body>
+</html>
