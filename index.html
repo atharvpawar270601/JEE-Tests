@@ -1,87 +1,198 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>JEE Test Platform Dashboard</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      margin: 0;
-      padding: 0;
-      background: #f2f2f2;
-    }
-    header {
-      background-color: #0b3d91;
-      color: #fff;
-      padding: 1rem;
-      text-align: center;
-    }
-    .container {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 1rem;
-      padding: 1rem;
-    }
-    .card {
-      background-color: #fff;
-      padding: 1.5rem;
-      border-radius: 8px;
-      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-      text-align: center;
-      transition: transform 0.2s;
-    }
-    .card:hover {
-      transform: scale(1.03);
-    }
-    .card a {
-      text-decoration: none;
-      color: #0b3d91;
-      font-weight: bold;
-    }
-  </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>JEE Comprehensive Test</title>
+  <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body>
 
-<header>
-  <h1>JEE Test Platform</h1>
-  <p>Topic-wise | Section-wise | Half-portion | Full-portion Tests</p>
-</header>
+<body class="bg-gray-50 text-gray-900">
 
-<section class="container">
-  <div class="card">
-    <h2>Mathematics Tests</h2>
-    <a href="tests/mathematics.html">Start Tests</a>
-  </div>
-  <div class="card">
-    <h2>Physics Tests</h2>
-    <a href="tests/physics.html">Start Tests</a>
-  </div>
-  <div class="card">
-    <h2>Chemistry Tests</h2>
-    <a href="tests/chemistry.html">Start Tests</a>
-  </div>
-  <div class="card">
-    <h2>Biology Tests</h2>
-    <a href="tests/biology.html">Start Tests</a>
-  </div>
-  <div class="card">
-    <h2>Section-wise Tests</h2>
-    <a href="tests/section-wise.html">Start Tests</a>
-  </div>
-  <div class="card">
-    <h2>Half-portion Tests</h2>
-    <a href="tests/half-portion.html">Start Tests</a>
-  </div>
-  <div class="card">
-    <h2>Full-portion Tests</h2>
-    <a href="tests/full-portion.html">Start Tests</a>
-  </div>
-  <div class="card">
-    <h2>Advanced (GATE / UPSC)</h2>
-    <a href="tests/advanced.html">Start Tests</a>
-  </div>
-</section>
+  <div class="max-w-4xl mx-auto p-4">
+    <h1 class="text-3xl font-bold text-center mb-6">📝 JEE Comprehensive Basic Test</h1>
+    <form id="testForm" class="space-y-6"></form>
 
+    <button onclick="submitTest()" class="mt-6 w-full p-3 bg-blue-600 text-white rounded hover:bg-blue-700 text-lg font-semibold">Submit Test</button>
+
+    <div id="result" class="mt-6 p-4 bg-gray-100 rounded hidden"></div>
+  </div>
+
+  <script>
+    const questions = [
+      {
+        q: "A projectile is thrown with an initial speed of 20 m/s at an angle of 30°. What is the maximum height attained by the projectile?",
+        options: ["5 m", "10 m", "15 m", "20 m"],
+        answer: "5 m",
+      },
+      {
+        q: "If two resistors of 4Ω and 6Ω are connected in parallel, what is their equivalent resistance?",
+        options: ["2.4Ω", "4.0Ω", "10.0Ω", "1.5Ω"],
+        answer: "2.4Ω",
+      },
+      {
+        q: "Which of the following waves has the longest wavelength?",
+        options: ["X-rays", "UV rays", "Radio waves", "Infrared waves"],
+        answer: "Radio waves",
+      },
+      {
+        q: "Photoelectric effect supports the idea that:",
+        options: ["Light has a wave nature", "Light has a particle nature", "Electrons have wave properties", "Energy is quantized in solids"],
+        answer: "Light has a particle nature",
+      },
+      {
+        q: "The dimensional formula of force is:",
+        options: ["[MLT⁻²]", "[ML²T⁻³]", "[ML³T⁻²]", "[M⁻¹LT²]"],
+        answer: "[MLT⁻²]",
+      },
+      {
+        q: "Which of the following is an amphoteric oxide?",
+        options: ["CO₂", "Al₂O₃", "MgO", "SO₂"],
+        answer: "Al₂O₃",
+      },
+      {
+        q: "Which among the following has the highest bond order?",
+        options: ["O₂⁻", "O₂", "O₂⁺", "O₂²⁻"],
+        answer: "O₂⁺",
+      },
+      {
+        q: "Which reagent is used to convert alcohol into aldehyde?",
+        options: ["PCC (Pyridinium chlorochromate)", "NaBH₄", "HCl", "NaOH"],
+        answer: "PCC (Pyridinium chlorochromate)",
+      },
+      {
+        q: "Which of the following elements is present in Vitamin B₁₂?",
+        options: ["Magnesium", "Cobalt", "Calcium", "Potassium"],
+        answer: "Cobalt",
+      },
+      {
+        q: "Which of the following polymers is used to make non-stick cookware coatings?",
+        options: ["PVC", "Teflon", "Nylon", "Polystyrene"],
+        answer: "Teflon",
+      },
+      {
+        q: "The sum of the first n natural numbers is given by:",
+        options: ["n(n + 1)", "(n² + 1)", "n(n + 1) / 2", "n²(n + 1)"],
+        answer: "n(n + 1) / 2",
+      },
+      {
+        q: "The value of sin²θ + cos²θ is:",
+        options: ["0", "1", "θ", "2"],
+        answer: "1",
+      },
+      {
+        q: "If A = [[1, 2], [3, 4]], then det(A) = ?",
+        options: ["-2", "2", "10", "-10"],
+        answer: "-2",
+      },
+      {
+        q: "Find the probability of getting an even number when a die is thrown once.",
+        options: ["1/6", "½", "2/3", "5/6"],
+        answer: "½",
+      },
+      {
+        q: "If the roots of the quadratic equation ax² + bx + c = 0 are equal, then:",
+        options: ["b² = 4ac", "b² > 4ac", "b² = ac", "b² = 4ac"],
+        answer: "b² = 4ac",
+      },
+      {
+        q: "Which kingdom contains organisms that are prokaryotic?",
+        options: ["Monera", "Protista", "Fungi", "Plantae"],
+        answer: "Monera",
+      },
+      {
+        q: "Which of the following is NOT a part of the female reproductive system?",
+        options: ["Ovary", "Testis", "Uterus", "Fallopian Tube"],
+        answer: "Testis",
+      },
+      {
+        q: "Which enzyme is responsible for the breakdown of starch into maltose in humans?",
+        options: ["Lipase", "Amylase", "Pepsin", "Trypsin"],
+        answer: "Amylase",
+      },
+      {
+        q: "Mendel’s Law of Segregation deals with:",
+        options: ["The separation of alleles during gamete formation", "Independent assortment of genes", "Mutation", "Linkage"],
+        answer: "The separation of alleles during gamete formation",
+      },
+      {
+        q: "Which part of the brain controls balance and coordination?",
+        options: ["Cerebrum", "Cerebellum", "Medulla", "Thalamus"],
+        answer: "Cerebellum",
+      },
+      {
+        q: "The energy produced by the Sun is due to:",
+        options: ["Nuclear fission", "Chemical reaction", "Nuclear fusion", "Combustion"],
+        answer: "Nuclear fusion",
+      },
+      {
+        q: "Which of the following has sp³ hybridization?",
+        options: ["Ethene", "Ethyne", "Methane", "Benzene"],
+        answer: "Methane",
+      },
+      {
+        q: "What is the derivative of sin(x)?",
+        options: ["cos(x)", "-cos(x)", "-sin(x)", "1"],
+        answer: "cos(x)",
+      },
+      {
+        q: "Which among the following is a biodegradable polymer?",
+        options: ["Nylon", "PHB (Polyhydroxybutyrate)", "PVC", "Bakelite"],
+        answer: "PHB (Polyhydroxybutyrate)",
+      },
+      {
+        q: "The universal law of gravitation was formulated by:",
+        options: ["Newton", "Einstein", "Galileo", "Planck"],
+        answer: "Newton",
+      },
+    ];
+
+    let startTime = Date.now();
+
+    const form = document.getElementById("testForm");
+
+    questions.forEach((q, i) => {
+      const div = document.createElement("div");
+      div.className = "p-4 border rounded shadow";
+
+      const qText = document.createElement("h2");
+      qText.className = "font-semibold mb-2";
+      qText.innerText = `${i + 1}. ${q.q}`;
+      div.appendChild(qText);
+
+      q.options.forEach(opt => {
+        const label = document.createElement("label");
+        label.className = "block mb-1";
+        label.innerHTML = `<input type="radio" name="q${i}" value="${opt}" class="mr-2"> ${opt}`;
+        div.appendChild(label);
+      });
+
+      form.appendChild(div);
+    });
+
+    function submitTest() {
+      const formData = new FormData(form);
+      let score = 0;
+
+      questions.forEach((q, i) => {
+        const selected = formData.get(`q${i}`);
+        if (selected === q.answer) score += 4;
+        else if (selected) score -= 1;
+      });
+
+      const timeTaken = ((Date.now() - startTime) / 1000).toFixed(2);
+
+      document.getElementById("result").innerHTML = `
+        <h2 class="text-xl font-bold mb-2">Result</h2>
+        <p class="text-lg">Total Score: ${score} / ${questions.length * 4}</p>
+        <p class="text-lg">Percentage: ${((score / (questions.length * 4)) * 100).toFixed(2)}%</p>
+        <p class="text-lg">Time Taken: ${timeTaken} seconds</p>
+      `;
+      document.getElementById("result").classList.remove("hidden");
+      window.scrollTo(0, document.body.scrollHeight);
+    }
+  </script>
 </body>
+
 </html>
